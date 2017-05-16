@@ -1,0 +1,48 @@
+{
+  "provider": {
+    "name": "PersonProvider"
+  },
+  "consumer": {
+    "name": "PersonConsumer"
+  },
+  "interactions": [
+    {
+      "description": "retrieve person",
+      "request": {
+        "method": "GET",
+        "path": "/people/1"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        },
+        "body": {
+          "id": 57170876,
+          "name": "ioWRzrHAtNEDOXOpevXa",
+          "surname": "ooPviDBoidudAYlTEqOF"
+        },
+        "matchingRules": {
+          "$.body.id": {
+            "match": "integer"
+          },
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.surname": {
+            "match": "type"
+          }
+        }
+      },
+      "providerState": "a person with id 1 exists"
+    }
+  ],
+  "metadata": {
+    "pact-specification": {
+      "version": "2.0.0"
+    },
+    "pact-jvm": {
+      "version": "3.3.9"
+    }
+  }
+}
