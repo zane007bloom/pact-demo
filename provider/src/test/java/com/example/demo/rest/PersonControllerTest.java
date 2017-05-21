@@ -27,21 +27,20 @@ public class PersonControllerTest {
     public final Target target = new HttpTarget(1234);
 
     @BeforeClass
-    public static void startSpring() {
+    public static void startApp() {
         application = SpringApplication.run(PersonApplication.class);
         personController = application.getBean(PersonController.class);
     }
 
     @State("a person with id 1 exists")
-    public void toDefaultState() {
+    public void personExistsState() {
         final Person person = new Person(1, "some", "guy");
         personController.createPerson(1, person);
     }
 
     @AfterClass
-    public static void kill() {
+    public static void stopApp() {
         application.stop();
     }
-
 
 }
